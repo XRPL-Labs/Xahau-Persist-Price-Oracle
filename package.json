@@ -1,0 +1,23 @@
+{
+  "name": "xahau-persist-xahusd",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Persist XAH-USD price(s) on Xahau ('oracle')",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "DEBUG=oracle* nodemon src/index.js",
+    "prod": "DEBUG=oracle* node src/index.js"
+  },
+  "author": "Wietse Wind <w@xrpl-labs.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "xah-price-aggregator": "^0.0.2",
+    "xrpl-accountlib": "^3.1.0",
+    "xrpl-client": "^2.2.0"
+  }
+}
