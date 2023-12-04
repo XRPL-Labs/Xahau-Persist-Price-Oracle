@@ -5,8 +5,6 @@ import {utils, signAndSubmit, derive} from 'xrpl-accountlib'
 import dotenv from 'dotenv'
 
 const log = debug('oracle:persist')
-log(process.env.XRPL_SOURCE_ACCOUNT_SECRET)
-const keypair = derive.familySeed(process.env.XRPL_SOURCE_ACCOUNT_SECRET)
 
 const timeoutSec = (process.env.TIMEOUT_SECONDS || 55)
 const timeout = setTimeout(() => {
@@ -16,6 +14,10 @@ const timeout = setTimeout(() => {
 
 export default (async () => {  
   dotenv.config()
+
+  log(process.env.XRPL_SOURCE_ACCOUNT_SECRET)
+  const keypair = derive.familySeed(process.env.XRPL_SOURCE_ACCOUNT_SECRET)
+
   const Connection = new XrplClient(process.env.ENDPOINT)
   const networkInfo  = await utils.txNetworkAndAccountValues(Connection, process.env.XRPL_SOURCE_ACCOUNT)
 
