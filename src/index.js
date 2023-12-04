@@ -15,7 +15,6 @@ const timeout = setTimeout(() => {
 export default (async () => {  
   dotenv.config()
 
-  log(process.env.XRPL_SOURCE_ACCOUNT_SECRET)
   const keypair = derive.familySeed(process.env.XRPL_SOURCE_ACCOUNT_SECRET)
 
   const Connection = new XrplClient(process.env.ENDPOINT)
